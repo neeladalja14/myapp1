@@ -42,4 +42,42 @@ math2 = do_math(7,9)
 print("this is tital for ", math1, ", and this is total for ",math2)
 
 
+
+#this is if else conditions tutorial.
+
+check = True
+
+if check == False:
+    print("It is false")
+
+elif check == "hamburger":
+    print("yummmmm, hamburgers")
+
+elif check == "yo":
+    print("hello")
+
+else:
+    print("this is actually True.")
+
+
+# example of for and while loops and how they work in python.
+
+numbers = ["nick", "patel", "george", "sam"]
+
+for item in numbers:
+    print("tis person is " ,item)
+
+
+run = True
+current = 1
+
+while run:
+    if current == 100:
+        run = False
+
+    else:
+        print(current)
+        current +=1
+
 """
+
