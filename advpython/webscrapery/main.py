@@ -27,4 +27,11 @@ for item in links:      # item is looped through the list of searches.
     if item_text and item_href:     # if item and attributes are found, they will be printed.
         print(item_text)
         print(item_href)
+        #print("parent:", item.find("a").parent)      """this line has parent of the item printed."""
+        #print("Summary:", item.find("a").parent.parent.find("p").text)      """this prints summary of each elements"""
+
+        children = item.children
+        """for child in children:   #this prints out the child of the parents.
+            print("Child:", child)"""
+        print("Next siblings of the h2: ", children.next_sibling)       # this prints out the next siblings of the child. for searching previous one, we need to write previuos instead of next.
 
