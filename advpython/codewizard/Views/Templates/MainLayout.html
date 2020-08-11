@@ -1,0 +1,45 @@
+$def with (page)
+$var css: static/css/bootstrap.min.css static/css/bootstrap-material-design.min.css
+$var js: static/js/jQuery-3/1/0/min.js static/js.bootstrap.min.js static/js/ripples.min.js static/js/scripty.js
+
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CodeWizard</title>
+
+    $if self.css:
+        $for style in self.css.split():
+            <link rel="stylesheet" href="$style" />
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="waves-effect" href="/">Home Feed<div class="ripple-container"></div></a></li>
+                    <li class="nav-item active">
+                        <a class="waves-effect" >Discover<div class="ripple-container"></div></a></li>
+                    <li class="nav-item active">
+                        <a class="waves-effect" >Settings<div class="ripple-container"></div></a></li>
+                    <li class="nav-item active">
+                        <a class="waves-effect" >News<div class="ripple-container"></div></a></li>
+                    </ul>
+                </div>
+        </nav>
+        <br /><br /><br />
+        $:page
+    </div>
+
+$if self.js:
+    $for script in self.js.split():
+        <script src="$script"></script>
+
+</body>
+</html>
