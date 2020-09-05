@@ -1,34 +1,47 @@
 import sys
 from PyQt5.QtWidgets import (QWidget, QApplication,
                              QHBoxLayout, QVBoxLayout,
-                             QPushButton, QLabel)
+                             QPushButton, QLabel, QLineEdit)
 
 
 class MainWindow(QWidget):
     def __init__(self):
         super().__init__()
         self.init_ui()
+        self.counter = 0
 
     def init_ui(self):
-        label = QLabel("Hi there!!! i am a label. Woot!")
-        okButton = QPushButton("OK")
-        cancelButton = QPushButton("Cancel")
+        label = QLabel("Name: ")
+        name_input = QLineEdit()
+        self.button = QPushButton("Clicked Me!: 0")
+        self.button.pressed.connect(self.pressButton)
+        self.button.released.connect(self.clickedButton)
 
-        horizontal = QVBoxLayout()
-        horizontal.addStretch(1)
+        h = QHBoxLayout()
+        h.addWidget(label)
+        h.addWidget(name_input)
 
-        horizontal.addWidget(okButton)
-        horizontal.addWidget(cancelButton)
+        v = QVBoxLayout()
+        v.addLayout(h)
+        v.addWidget(self.button)
 
-        vertical = QVBoxLayout()
-        vertical.addWidget(label)
-        vertical.addStretch(1)
-        vertical.addLayout(horizontal)
 
-        self.setLayout(vertical)
+        self.setLayout(v)
 
-        self.setWindowTitle("horizontal layout")
+        self.setWindowTitle("Horizontal Layout")
         self.show()
+
+
+    def clickedButton(self):
+        print("This is button, has been released")
+
+
+    def pressButton(self):
+        print("This is being pressed")
+        self.counter += 1
+        self.button.setText("Clicked: " + str(self.counter))
+
+
 
 
 if __name__ == "__main__":
